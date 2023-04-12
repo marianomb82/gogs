@@ -30,7 +30,7 @@ pipeline {
                     sleep 10
                     curl -I http://localhost:3000/
                     xCURL_TEST=$?
-                    if [ $xCURL_TEST -eq 0 ]
+                    if [ $xCURL_TEST -eq 0 ]; then
                     	echo "TEST SUCCESSFUL"
                     else
                     	echo "TEST FAIL"
