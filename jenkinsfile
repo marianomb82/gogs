@@ -6,9 +6,7 @@ pipeline {
         stage('go_unit_test') {
             steps {
                 sh '''
-                    cd gogs
                     xGO_TEST_RESULTS_FILE=/tmp/go_test_result
-                    pwd
                     go get -x -t ./...
                     go test -cover ./... | tee $xGO_TEST_RESULTS_FILE 
                     xGO_TEST_EXIT_CODE=$?
@@ -21,7 +19,6 @@ pipeline {
         stage('generar_artefacto') {
             steps {
                 sh '''
-                    cd gogs
                     go build -o gogs
                 '''
             }
@@ -29,7 +26,6 @@ pipeline {
         stage('pruebas_funcionales') {
             steps {
                 sh '''
-                    cd gogs
                     ./gogs web &
                     sleep 10
                     curl -I http://localhost:3000/
