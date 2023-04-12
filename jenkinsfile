@@ -34,7 +34,7 @@ pipeline {
                     	echo "TEST SUCCESSFUL"
                     else
                     	echo "TEST FAIL"
-                    	  
+                    fi                    	  
                 '''
             }
         }
